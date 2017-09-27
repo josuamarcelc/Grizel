@@ -6,10 +6,13 @@ include('Ebay.php');
 
 $ebay = new Ebay();
 
-$html = $ebay->search('abc');
+$html = $ebay->search('tshirt','20');
 // echo '<pre>';
 foreach($html->find('#ResultSetItems') as $html2){
 	foreach($html2->find('img') as $e){
+	echo '<img src="' . $e->src . '"/>';
+	}
+	foreach($html2->find('#GalleryViewInner') as $e){
 	echo '<img src="' . $e->src . '"/>';
 	}
 }
